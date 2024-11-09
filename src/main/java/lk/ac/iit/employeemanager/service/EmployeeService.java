@@ -33,8 +33,8 @@ public class EmployeeService {
     }
 
     public Employee findEmployeeById(Long id) {
-        return employeeRepo.findById(id)
-                .orElseThrow(()->new UserNotFoundException("User by id" +id + "was not found"));
+        return employeeRepo.findEmployeeById(id)
+                .orElseThrow(() -> new UserNotFoundException("User by id " + id + " was not found"));
     }
 
     public void deleteEmployee(Long id){

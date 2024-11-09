@@ -1,7 +1,5 @@
 package lk.ac.iit.employeemanager.module;
-
 import jakarta.persistence.*;
-
 import java.io.Serializable;
 
 @Entity
@@ -9,34 +7,32 @@ public class Employee implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false, updatable = false)
-    private long empId;
+    private Long id;
     private String name;
     private String email;
     private String jobTitle;
     private String phone;
-    private String imgUrl;
+    private String imageUrl;
     @Column(nullable = false, updatable = false)
     private String employeeCode;
 
-    public Employee() {
-    }
+    public Employee() {}
 
-    public Employee(long empId, String name, String email, String jobTitle, String phone, String imgUrl, String employeeCode) {
-        this.empId = empId;
+    public Employee(String name, String email, String jobTitle, String phone, String imageUrl, String employeeCode) {
         this.name = name;
         this.email = email;
         this.jobTitle = jobTitle;
         this.phone = phone;
-        this.imgUrl = imgUrl;
+        this.imageUrl = imageUrl;
         this.employeeCode = employeeCode;
     }
 
-    public long getEmpId() {
-        return empId;
+    public Long getId() {
+        return id;
     }
 
-    public void setEmpId(long empId) {
-        this.empId = empId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -71,12 +67,12 @@ public class Employee implements Serializable {
         this.phone = phone;
     }
 
-    public String getImgUrl() {
-        return imgUrl;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setImgUrl(String imgUrl) {
-        this.imgUrl = imgUrl;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public String getEmployeeCode() {
@@ -89,16 +85,13 @@ public class Employee implements Serializable {
 
     @Override
     public String toString() {
-        return "employee{" +
-                "empId=" + empId +
+        return "Employee{" +
+                "id=" + id +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", jobTitle='" + jobTitle + '\'' +
                 ", phone='" + phone + '\'' +
-                ", imgUrl='" + imgUrl + '\'' +
-                ", employeeCode='" + employeeCode + '\'' +
+                ", imageUrl='" + imageUrl + '\'' +
                 '}';
     }
 }
-
-
