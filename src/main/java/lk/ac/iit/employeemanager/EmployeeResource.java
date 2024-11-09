@@ -18,18 +18,18 @@ public class EmployeeResource {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<Employee>> getAllEmployees() {
+    public ResponseEntity<List<Employee>> getAllEmployees () {
         List<Employee> employees = employeeService.findAllEmployees();
         return new ResponseEntity<>(employees, HttpStatus.OK);
     }
 
     @GetMapping("/find/{id}")
-    public ResponseEntity<Employee> getEmployeeById(@PathVariable("id") Long id) {
+    public ResponseEntity<Employee> getEmployeeById (@PathVariable("id") Long id) {
         Employee employee = employeeService.findEmployeeById(id);
         return new ResponseEntity<>(employee, HttpStatus.OK);
     }
 
-    @PatchMapping("/add")
+    @PostMapping("/add")
     public ResponseEntity<Employee> addEmployee(@RequestBody Employee employee) {
         Employee newEmployee = employeeService.addEmployee(employee);
         return new ResponseEntity<>(newEmployee, HttpStatus.CREATED);
@@ -46,5 +46,4 @@ public class EmployeeResource {
         employeeService.deleteEmployee(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
-
 }
